@@ -1,18 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include <string.h>
 #include <unistd.h>
 #include <errno.h>
 
 int gen(){
   int * ran = malloc(sizeof(char));
   int dev = open("/dev/random",O_RDONLY);
-  /*
-  if (dev < 0){
-    perror("Error opening file");
-  }
-  */
   read(dev,ran,sizeof(int));
   return *ran;
 }
